@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nexus.observation.v1",
+  "type": "object",
+  "required": ["kind", "timestamp", "state", "evidence", "uncertainty", "provenance"],
+  "properties": {
+    "kind": { "const": "observation" },
+    "timestamp": { "type": "string" },
+    "state": {},
+    "evidence": { "type": "array" },
+    "uncertainty": { "type": "number", "minimum": 0, "maximum": 1 },
+    "provenance": { "type": "array" },
+    "authority": { "type": "object" },
+    "next_actions": { "type": "array" }
+  },
+  "additionalProperties": true
+}
