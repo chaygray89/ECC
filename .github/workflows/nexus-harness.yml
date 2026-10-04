@@ -1,0 +1,31 @@
+name: NEXUS Engineering Harness
+
+on:
+  pull_request:
+    paths:
+      - "nexus/**"
+      - ".github/workflows/nexus-harness.yml"
+  push:
+    branches: ["main"]
+    paths:
+      - "nexus/**"
+      - ".github/workflows/nexus-harness.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Harness doctor
+        run: node nexus/bin/nexus-harness.js doctor
+      - name: Harness tests
+        run: npm --prefix nexus test
+      - name: Example execution plan
+        run: node nexus/bin/nexus-harness.js plan nexus/examples/task.json

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nexus.action-receipt.v1",
+  "type": "object",
+  "required": ["schema", "id", "created_at", "observation", "decision", "action", "outcome", "learning", "integrity"],
+  "properties": {
+    "schema": { "const": "nexus.action-receipt.v1" },
+    "id": { "type": "string" },
+    "created_at": { "type": "string" },
+    "observation": {},
+    "decision": {},
+    "action": {},
+    "outcome": {},
+    "learning": {},
+    "integrity": {
+      "type": "object",
+      "required": ["algorithm", "digest"],
+      "properties": {
+        "algorithm": { "const": "sha256" },
+        "digest": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      }
+    }
+  },
+  "additionalProperties": true
+}

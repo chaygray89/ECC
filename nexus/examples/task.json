@@ -1,0 +1,20 @@
+{
+  "title": "Ship a production revenue experiment",
+  "description": "Implement a reversible experiment, verify it, and record the observed economic outcome.",
+  "tags": ["architecture", "test", "cost"],
+  "impact": 7,
+  "uncertainty": 0.45,
+  "production": true,
+  "external_write": false,
+  "financial": false,
+  "credentials": false,
+  "sensitive_data": false,
+  "irreversible": false,
+  "reversibility": 0.9,
+  "economics": {
+    "p_success": 0.35,
+    "upside": 3000,
+    "expected_cost": 150,
+    "risk_adjusted_downside": 250
+  }
+}
