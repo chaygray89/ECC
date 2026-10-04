@@ -1,0 +1,50 @@
+{
+  "schema": "nexus.engineering-harness.v1",
+  "mode": "full-catalog-lazy",
+  "principles": {
+    "nexus_is_decision_kernel": true,
+    "ecc_is_execution_harness": true,
+    "evidence_over_theory": true,
+    "observation_prediction_intervention_outcome_are_distinct": true,
+    "project_scope_isolation": true,
+    "memory_is_not_policy": true,
+    "irreversible_external_actions_require_authority": true
+  },
+  "catalog": {
+    "agents": "../agents",
+    "skills": "../skills",
+    "commands": "../commands",
+    "rules": "../rules",
+    "hooks": "../hooks",
+    "load_policy": "on-demand"
+  },
+  "core_surfaces": {
+    "memory": "../scripts/memory.js",
+    "eval": "../scripts/eval-harness.js",
+    "profiles": "../scripts/profile.js",
+    "harness_audit": "../scripts/harness-audit.js",
+    "skills_health": "../scripts/skills-health.js",
+    "loop_status": "../scripts/loop-status.js",
+    "orchestration_status": "../scripts/orchestration-status.js"
+  },
+  "required_skills": [
+    "agent-harness-construction",
+    "agent-introspection-debugging",
+    "ai-regression-testing",
+    "continuous-agent-loop",
+    "continuous-learning-v2",
+    "context-budget",
+    "cost-aware-llm-pipeline",
+    "cost-tracking"
+  ],
+  "risk_bands": [
+    { "max": 19, "name": "fast", "gates": ["acceptance-check"] },
+    { "max": 39, "name": "standard", "gates": ["acceptance-check", "targeted-test"] },
+    { "max": 69, "name": "high", "gates": ["acceptance-check", "targeted-test", "independent-review", "security-check"] },
+    { "max": 100, "name": "critical", "gates": ["acceptance-check", "targeted-test", "independent-review", "security-check", "eval-receipt", "authority-check"] }
+  ],
+  "economics": {
+    "expected_value_formula": "p_success*upside - expected_cost - risk_adjusted_downside",
+    "track": ["p_success", "upside", "expected_cost", "risk_adjusted_downside", "observed_outcome"]
+  }
+}
